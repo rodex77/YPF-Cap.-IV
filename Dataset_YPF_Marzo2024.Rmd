@@ -1,0 +1,40 @@
+---
+title: "CAPIV_YPF_MARZO24"
+author: "RDIAZ"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readr)
+Dataset_YPF <- read_csv("Dataset_YPF.csv")
+View(Dataset_YPF) 
+```
+```{r}
+hist(Dataset_YPF$Petroleo_Diario_m3)
+```
+```{r}
+par(mfrow=c(3,2))
+hist(Dataset_YPF$Petroleo_Diario_m3)
+hist(Dataset_YPF$Petroleo_Mensual_m3)
+hist(Dataset_YPF$Petroleo_Acumulado_m3)
+hist(Dataset_YPF$Gas_Diario_m3)
+hist(Dataset_YPF$Gas_Mensual_m3)
+hist(Dataset_YPF$Gas_Acumulado_m3)
+```
+##Multivariado
+
+```{r}
+library(carData)
+DataRawYPF <- Dataset_YPF [ c(7,8,9,10,11,12)]
+DataRawYPF
+```
+
+```{r}
+scatterplotMatrix(DataRawYPF)
+```
+
